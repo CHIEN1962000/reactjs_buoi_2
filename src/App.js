@@ -5,8 +5,18 @@ import Header from './Header';
 import Footer from './Footer';
 import { useState } from 'react';
 
+function DemoComponet(props) {
+    return (
+      <div>
+        <div>Đây là tuổi: {props.age}</div>
+        <div>Đây là tên: {props.displayName}</div>
+      </div>
+    )
+}
+
 function App() {
   const [age, setAge] = useState(0);
+  const [name, setName] = useState('chien');
 
   const tangAge = () => {
     setAge(age + 1);
@@ -35,6 +45,7 @@ return (
         <div>{age}</div>
         <div>Tăng age lên 1</div>
         <div onClick={tangAge}>Tăng age </div>
+        <DemoComponet age={age} displayName={name}></DemoComponet>
     </div>
     <div>--------------------</div>
     <div>Thực hành 4</div>
