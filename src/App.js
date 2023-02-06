@@ -13,6 +13,16 @@ function DemoComponet(props) {
       </div>
     )
 }
+function UserForm(props) {
+  return (
+    <div>
+      Name: <input type="text" name="Name" placeholder="Please enter name" onChange={props.handleInputChange} />
+    </div>
+  );
+}
+function Greeting(props) {
+  return <div>asdas: {props.userInput}</div>;
+}
 
 function App() {
   const [age, setAge] = useState(0);
@@ -51,6 +61,16 @@ return (
     <div>Thực hành 4</div>
     <input type="text" name="user" placeholder="Please type somthing" onChange={handleInputChange}/>
     <button onClick={handleButtonClick}>Print</button>
+    <div>Thu: {userInput}</div>
+
+    <div>--------------------</div>
+    <div>BTVN_1</div>
+    <Header></Header>
+
+    <div>--------------------</div>
+    <div>BTVN_2</div>
+    <UserForm onChange={handleInputChange}></UserForm>
+    <Greeting>{userInput}</Greeting>
   </div>
 );
 }
