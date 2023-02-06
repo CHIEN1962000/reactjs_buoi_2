@@ -13,15 +13,18 @@ function DemoComponet(props) {
       </div>
     )
 }
-function UserForm(props) {
+function UserForm({label, type, placeholder, onChange}) {
   return (
     <div>
-      Name: <input type="text" name="Name" placeholder="Please enter name" onChange={props.handleInputChange} />
+      <label>{label}</label>
+      <input type={type} placeholder={placeholder} onChange={onChange}/>
     </div>
   );
 }
 function Greeting(props) {
-  return <div>asdas: {props.userInput}</div>;
+  return (
+    <div>{props.userInput != '' ? `Greeting: ${props.userInput}` : ''}</div>
+  );
 }
 
 function App() {
@@ -69,8 +72,13 @@ return (
 
     <div>--------------------</div>
     <div>BTVN_2</div>
-    <UserForm onChange={handleInputChange}></UserForm>
-    <Greeting>{userInput}</Greeting>
+    <UserForm
+      label="Name: "
+      type="text"
+      placeholder="Please enter name"
+      onChange={handleInputChange}
+    />
+    <Greeting userInput={userInput}></Greeting>
   </div>
 );
 }
